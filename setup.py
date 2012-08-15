@@ -7,11 +7,12 @@ except ImportError:
     pass
 
 from setuptools import setup, find_packages
+import os
 
-VERSION = open('VERSION', 'r').read()
-VERSION = VERSION.replace('\n', '')
+import pywebdav
 
-CHANGES = open('doc/Changes', 'r').read()
+CHANGES = open(os.path.join(os.path.dirname(__file__), 'doc/Changes'),
+    'r').read()
 
 DOC = """
 WebDAV library for python.
@@ -66,15 +67,15 @@ Changes
 """ % CHANGES
 
 setup(name='PyWebDAV',
-      description='WebDAV library including a standalone server for python',
-      author='Simon Pamies',
-      author_email='spamsch@gmail.com',
-      maintainer='Simon Pamies',
-      maintainer_email='spamsch@gmail.com',
+      description=pywebdav.__doc__,
+      author=pywebdav.__author__,
+      author_email=pywebdav.__email__,
+      maintainer=pywebdav.__author__,
+      maintainer_email=pywebdav.__email__,
       url='http://code.google.com/p/pywebdav/',
       platforms=['Unix', 'Windows'],
-      license='GPL v2',
-      version=VERSION,
+      license=pywebdav.__license__,
+      version=pywebdav.__version__,
       long_description=DOC,
       classifiers=[
         'Development Status :: 5 - Production/Stable',
